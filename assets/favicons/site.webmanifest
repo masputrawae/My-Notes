@@ -17,8 +17,6 @@
     "theme_color": "#2196f3",
     "background_color": "#ffffff",
     "display": "standalone",
-    "start_url": "/index.html",
-    "scope": "/my-notes/",
     "orientation": "portrait",
     "lang": "id"
 }
