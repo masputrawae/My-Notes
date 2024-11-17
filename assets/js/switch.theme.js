@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const themeIcon = document.getElementById('themeIcon');
 
     // Set the default theme to dark if no setting is found in local storage
-    const currentTheme = localStorage.getItem('bsTheme') || 'dark';
+    const currentTheme = localStorage.getItem('bsTheme') || 'light';
     htmlElement.setAttribute('data-bs-theme', currentTheme);
 
     // Update button icon based on theme
