@@ -13,9 +13,88 @@ tags:
   - javascript
   - tips_trick_keren
   - coding
-last_modified_at: 2024-11-15
+last_modified_at: 2024-11-17
 author: Putra Jaya
 ---
+<style>
+.kepala {
+  width: 50px;
+  height: 50px;
+  background-color: #ffeb3b;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
+}
+.containersss {
+  display: flex;
+  gap: 4px;
+}
+.mata {
+  width: 13px;
+  height: 13px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 2px solid #333;
+  overflow: hidden;
+}
+.pupil {
+  width: 8px;
+  height: 8px;
+  background: #333;
+  border-radius: 50%;
+  position: absolute;
+  transition: transform 0.1s ease-out;
+}
+.mulut {
+  width: 20px;
+  height: 10px;
+  background-color: #f44336;
+  border-radius: 0 0 50px 50px;
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
+<body>
+  <div class="kepala">
+    <div class="containersss">
+      <div class="mata">
+        <div class="pupil"></div>
+      </div>
+      <div class="mata">
+        <div class="pupil"></div>
+      </div>
+    </div>
+    <div class="mulut"></div>
+  </div>
+<script>
+document.addEventListener('mousemove', (e) => {
+  const mataList = document.querySelectorAll('.mata');
+  mataList.forEach(mata => {
+    const pupil = mata.querySelector('.pupil');
+    const mataRect = mata.getBoundingClientRect();
+    const mataX = mataRect.left + mataRect.width / 2;
+    const mataY = mataRect.top + mataRect.height / 2;
+    const angle = Math.atan2(e.clientY - mataY, e.clientX - mataX);
+    const jarak = 5;
+    const pupilX = Math.cos(angle) * jarak;
+    const pupilY = Math.sin(angle) * jarak;
+    pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+  });
+});
+</script>
+</body>
+
 # Code Sederhana Tapi Keren
 Hai 😊 Teman! Kali ini aku mau berbagi code sederhana yang bikin tampilan website jadi lebih seru: emoji yang matanya bisa mengikuti kursor kamu! Lucu banget kan? Kalau kamu tertarik, bisa langsung copy-paste source code-nya di bawah. Tapi peringatan: ini untuk seru-seruan ya, jadi kalau kamu sudah jago koding, lebih seru bikin sendiri! 😁
 ## Kode HTML dan CSS untuk Struktur dan Tampilan
@@ -193,82 +272,3 @@ document.addEventListener('mousemove', (e) => {
 </script>
 </body>
 ```
-<style>
-.kepala {
-  width: 50px;
-  height: 50px;
-  background-color: #ffeb3b;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid black;
-}
-.containersss {
-  display: flex;
-  gap: 4px;
-}
-.mata {
-  width: 13px;
-  height: 13px;
-  background: #fff;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  border: 2px solid #333;
-  overflow: hidden;
-}
-.pupil {
-  width: 8px;
-  height: 8px;
-  background: #333;
-  border-radius: 50%;
-  position: absolute;
-  transition: transform 0.1s ease-out;
-}
-.mulut {
-  width: 20px;
-  height: 10px;
-  background-color: #f44336;
-  border-radius: 0 0 50px 50px;
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-</style>
-</head>
-<body>
-  <div class="kepala">
-    <div class="containersss">
-      <div class="mata">
-        <div class="pupil"></div>
-      </div>
-      <div class="mata">
-        <div class="pupil"></div>
-      </div>
-    </div>
-    <div class="mulut"></div>
-  </div>
-<script>
-document.addEventListener('mousemove', (e) => {
-  const mataList = document.querySelectorAll('.mata');
-  mataList.forEach(mata => {
-    const pupil = mata.querySelector('.pupil');
-    const mataRect = mata.getBoundingClientRect();
-    const mataX = mataRect.left + mataRect.width / 2;
-    const mataY = mataRect.top + mataRect.height / 2;
-    const angle = Math.atan2(e.clientY - mataY, e.clientX - mataX);
-    const jarak = 5;
-    const pupilX = Math.cos(angle) * jarak;
-    const pupilY = Math.sin(angle) * jarak;
-    pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
-  });
-});
-</script>
-</body>
