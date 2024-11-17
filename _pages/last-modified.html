@@ -1,0 +1,20 @@
+---
+layout: page
+title: Last Modified
+permalink: /last-modified.html
+---
+<div class="my-4 mx-3">
+    <div class="timeline">
+        {% assign sorted_posts = site.posts | sort: 'last_modified_at' | reverse %}
+        {% for post in sorted_posts %}
+            {% if post.last_modified_at %}
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <a href="{{ post.url | relative_url }}" class="timeline-title">{{ post.title | xml_escape }}</a>
+                        <p><small>Last modified: {{ post.last_modified_at | date: '%B %d, %Y' }}</small></p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

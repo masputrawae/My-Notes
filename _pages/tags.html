@@ -1,0 +1,36 @@
+---
+layout: page
+title: Tags
+permalink: /tags.html
+---
+{% assign all_tags = "" %}
+<!-- Mengumpulkan semua tags -->
+{% for post in site.posts %}
+    {% for tag in post.tags %}
+        {% unless all_tags contains tag %}
+            {% assign all_tags = all_tags | append: tag | append: "," %}
+        {% endunless %}
+    {% endfor %}
+{% endfor %}
+
+{% assign tags_array = all_tags | split: "," | uniq | sort %} <!-- Mengurutkan tags -->
+
+<div>
+    {% for tag in tags_array %}
+        {% if tag != "" %}
+            <div>
+                <h6>{{ tag }}</h6>
+                <div>
+                    <ul>
+                        {% assign posts_in_tag = site.posts | where: "tags", tag %}
+                        {% for post in posts_in_tag %}
+                            <li>
+                                <a href="{{ post.url | relative_url }}">{{ post.title | xml_escape }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

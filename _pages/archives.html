@@ -1,0 +1,36 @@
+---
+layout: page
+title: Archives
+permalink: /archives.html
+---
+<div class="container">
+    <ul>
+        {% assign months = "" %}
+        
+        <!-- Mengumpulkan bulan dan tahun dari postingan -->
+        {% for post in site.posts %}
+            {% assign post_month = post.date | date: "%B %Y" | strip %}
+            {% unless months contains post_month %}
+                {% assign months = months | append: post_month | append: "," %}
+            {% endunless %}
+        {% endfor %}
+        
+        {% assign months_array = months | split: "," | uniq %}
+        
+        <!-- Menampilkan bulan dan artikel -->
+        {% for month in months_array %}
+            {% if month != "" %}
+                <li><strong>{{ month }}</strong>
+                    <ul>
+                        {% for post in site.posts %}
+                            {% assign post_month = post.date | date: "%B %Y" | strip %}
+                            {% if post_month == month %}
+                                <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

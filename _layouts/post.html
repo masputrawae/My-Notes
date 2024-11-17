@@ -1,0 +1,28 @@
+---
+layout: main
+---
+<h1 class="fw-bold">{{ page.title }}</h1>
+<hr>
+<div>
+    <small>Published on {{ page.date | date: '%B %d, %Y' }} by {{ page.author | default: 'Anonymous' }}</small>
+    <div>
+        <a class="btn btn-link" data-bs-toggle="collapse" href="#tocCollapse" role="button" aria-expanded="false" aria-controls="tocCollapse">
+            Daftar Isi
+        </a>
+        <div id="tocCollapse" class="collapse">
+            <div class="px-3">
+                {% include toc.html html=content %}
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<article class="markdown">
+    {{ content }}
+</article>
+<hr>
+<footer class="text-muted">
+    <p>Categories: {{ page.categories | join: ', ' }}</p>
+    <p>Tags: {{ page.tags | join: ', ' }}</p>
+    <p>Last modified: {{ page.last_modified_at | date: '%B %d, %Y' }}</p>
+</footer>

@@ -1,0 +1,88 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+    {% include partials/head.html %}
+<body>
+    <!-- Container utama -->
+    <div class="container-fluid">
+        <div class="row min-vh-100">
+            <!-- Sidebar Desktop/Tablet -->
+            <div class="row min-vh-100 col-md-2 p-3 d-none d-md-block">
+                {% include partials/aside-nav.html %}
+            </div>
+            <!-- Sidebar Menggunakan Offcanvas Untuk mobile-->
+            <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                <div class="offcanvas-body">
+                    <div>
+                        {% include partials/aside-nav.html %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Area konten (Header, Main, Footer) -->
+            <div class="col-md-10">
+                <header class="custom-header">
+                    {% include breadcrumbs.html %}
+                    <!-- Button Offcanvas -->
+                    <button class="custom-offcanvas-btn btn d-block d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"><i class="bi bi-door-closed"></i></button>
+                    <!-- Navbar dan Tabs-->
+                    <nav>
+                        <div class="nav nav-tabs d-flex" id="nav-tab" role="tablist">
+                            <!-- Main Content -->
+                            <button class="nav-link active" id="nav-main-tab" data-bs-toggle="tab" data-bs-target="#nav-main" type="button" role="tab" aria-controls="nav-main" aria-selected="true">
+                                <i class="bi bi-book"></i> Main
+                            </button>
+                            <!-- About Tabs-->
+                            <button class="nav-link" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about" type="button" role="tab" aria-controls="nav-about" aria-selected="false">
+                                <i class="bi bi-file-person"></i> About
+                            </button>
+                            <!-- Contact -->
+                            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                                <i class="bi bi-person-lines-fill"></i> Contact
+                            </button>
+                            <!-- Search -->
+                            <button class="nav-link ms-auto" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-search" aria-selected="false">
+                                <i class="bi bi-search"></i>
+                            </button>                                                                                      
+                        </div>
+                    </nav>
+                </header>
+                
+                <!-- Konten utama -->
+                <div class="">    
+                    <main class="custom-main p-3 min-vh-100">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-main" role="tabpanel" aria-labelledby="nav-main-tab" tabindex="0">
+                                <articles class="custom-articles">
+                                    {{ content }}
+                                </articles>
+                            </div>
+                            <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab" tabindex="0">
+                                <articles class="custom-articles">
+                                    {% include tabs/about.html %}
+                                </articles>
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                                <articles class="custom-articles">
+                                    {% include tabs/contact.html %}
+                                </articles>
+                            </div>
+                            <div class="tab-pane fade" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab" tabindex="0">
+                                <articles class="custom-articles">
+                                    {% include tabs/search.html %}
+                                </articles>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer class="text-center custom-footer">
+                {% include partials/footer.html %}
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

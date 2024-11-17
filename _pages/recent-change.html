@@ -1,0 +1,16 @@
+---
+layout: page
+title: Recent Change
+permalink: /recent-change.html
+---
+<ul>
+    {% for post in site.posts %}
+      {% if forloop.index <= 10 %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title | xml_escape }}</a>
+          <p>{{ post.date | date: "%d %B %Y" }}</p>
+        </li>
+      {% endif %}
+    {% endfor %}
+</ul>
+  
