@@ -7,6 +7,7 @@ categories:
   - Server
   - Database
   - Database Management
+  - Linux
 tags:
   - phpmyadmin
   - mysql

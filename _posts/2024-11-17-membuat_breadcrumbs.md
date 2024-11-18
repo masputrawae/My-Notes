@@ -2,7 +2,7 @@
 title: Jekyll | Membuat Breadcrumbs
 description: Cara sederhana membuat breadcrumbs di Jekyll
 excerpt: Hai! Kali ini aku ingin membagikan pengalaman membuat Breadcrumbs di Jekyll, fitur navigasi yang biasanya muncul di bagian atas halaman web. Contohnya seperti yang ada di web ini. Mungkin aku tidak akan banyak membahas detail cara kerjanya, karena aku masih belajar dan belum sepenuhnya paham alur kerjanya.
-date: 2024-11-18
+date: 2024-11-17
 categories:
   - Web Development
 tags:
@@ -14,7 +14,7 @@ tags:
   - html
   - liquid
   - tutorial
-last_modified_at: 2024-11-18
+last_modified_at: 2024-11-17
 author: Putra Jaya
 ---
 # Membuat Fitur Breadcrumbs di Jekyll

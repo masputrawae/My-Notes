@@ -6,6 +6,7 @@ date: 2024-11-18
 categories:
   - Server
   - Database
+  - Linux
 tags:
   - mysql
   - ubuntu
