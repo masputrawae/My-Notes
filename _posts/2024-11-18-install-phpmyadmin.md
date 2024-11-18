@@ -3,10 +3,10 @@ title: Langkah-langkah Install phpMyAdmin
 description: Panduan instalasi dan konfigurasi phpMyAdmin di Ubuntu untuk memudahkan pengelolaan database MySQL.
 excerpt: phpMyAdmin adalah alat berbasis web yang digunakan untuk mengelola database MySQL secara grafis. Dengan phpMyAdmin, pengguna bisa melakukan berbagai tugas seperti membuat, mengedit, menghapus database, tabel, dan data, serta menjalankan query SQL tanpa perlu menggunakan baris perintah.
 date: 2024-11-18
-catgories:
-  - Database Management
-  - Database
+categories:
   - Server
+  - Database
+  - Database Management
 tags:
   - phpmyadmin
   - mysql
