@@ -68,6 +68,10 @@ Kalau kamu pakai firewall, kamu bisa buka akses untuk Apache dengan perintah:
 ```bash
 sudo ufw allow 'Apache'
 ```
-
+## Langkah 6: 
+Jangan lupa juga untuk mengatur hak akses direktori server-nya, agar user biasa bebas membuat file dan direktori di sana.
+```bash
+sudo chmod 777 /var/www/html -R
+```
 ### Selesai!
 Apache sudah berhasil terinstall dan berjalan di sistemmu. Gimana, sampai sini lancar? 😊
