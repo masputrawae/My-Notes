@@ -11,9 +11,9 @@ tags:
   - static_website
   - web_development
   - breadcrumbs
-  - Tutorial
   - html
   - liquid
+  - tutorial
 last_modified_at: 2024-11-18
 author: Putra Jaya
 ---

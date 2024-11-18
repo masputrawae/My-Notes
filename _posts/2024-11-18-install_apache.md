@@ -2,38 +2,34 @@
 title: Cara Install Apache di Ubuntu
 description: Panduan langkah demi langkah untuk menginstall Apache di Ubuntu, mulai dari update sistem hingga cek status server.
 excerpt: Panduan lengkap cara install Apache di Ubuntu untuk server lokal.
-date: 2024-11-19
+date: 2024-11-18
 categories:
   - Server
   - Linux
-  - Panduan
 tags:
-  - Apache
-  - Ubuntu
-  - Linux
-  - Web Server
-  - Installasi
-last_modified_at: 2024-11-19
+  - ubuntu
+  - server
+  - apache
+  - install_apache
+  - web_server
+  - instalasi
+  - tutorial
+last_modified_at: 2024-11-18
 author: Putra Jaya
 ---
 # Cara Install Apache di Ubuntu
-Sebenarnya aku install pada tanggal 2024-11-18, tapi baru sempat menulis pada tanggal 2024-11-19, telat sehari ngak masalah lah ya, hehe.
-Langsung aja tanpa banyak basa-basi:
-
+Apache adalah server web yang paling populer dan digunakan untuk menyajikan konten website di internet. Secara teknis, Apache bekerja dengan menerima permintaan (request) dari pengguna melalui protokol HTTP, lalu mengirimkan halaman web atau file terkait sebagai respons. Apache mendukung berbagai modul, seperti untuk PHP, sehingga kamu bisa menjalankan aplikasi web dinamis di server ini. Apache juga terkenal karena fleksibilitas, keamanannya, dan kemampuannya untuk mengelola banyak situs dalam satu server.
 ## Langkah 1: Update Package Manager
 Kita mulai dengan memastikan semua paket di sistemmu up-to-date:
 ```bash
 sudo apt update && sudo apt upgrade
 ```
-
 ## Langkah 2: Install Apache
 Install Apache dengan perintah berikut:
 ```bash
 sudo apt install apache2
 ```
-
 Setelah selesai, Apache seharusnya langsung berjalan otomatis.
-
 ## Langkah 3: Cek Status Apache
 Kamu bisa cek apakah Apache sudah aktif dengan perintah ini:
 ```bash
@@ -68,7 +64,7 @@ Kalau kamu pakai firewall, kamu bisa buka akses untuk Apache dengan perintah:
 ```bash
 sudo ufw allow 'Apache'
 ```
-## Langkah 6: 
+## Langkah 6: Atur Hak akses
 Jangan lupa juga untuk mengatur hak akses direktori server-nya, agar user biasa bebas membuat file dan direktori di sana.
 ```bash
 sudo chmod 777 /var/www/html -R
