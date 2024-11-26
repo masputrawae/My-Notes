@@ -18,57 +18,116 @@ tags:
 last_modified_at: 2024-11-26
 author: Putra Jaya
 ---
-## Menyembunyikan dan Menampilkan Elemen dengan JavaScript
-
-Pada catatan ini, kita akan membuat tombol untuk menyembunyikan atau menampilkan sebuah elemen HTML menggunakan JavaScript. Misalnya, kita akan membuat konten tersembunyi yang hanya muncul setelah tombol diklik.
-
-### Struktur HTML
+## Menyembunyikan dan menampilkan elemen
+### Struktur Html
 
 ```html
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sembunyikan dan Tampilkan</title>
-  <link rel="stylesheet" href="style.css">
+    <title>01 Menampilkan Dan Menyembunyikan Elemen</title>
+    <!--=| CSS dan JavaScript |=-->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- Tombol untuk menampilkan atau menyembunyikan elemen -->
-  <button id="tampilkan">Tampilkan Elemen</button>
-  
-  <!-- Elemen konten yang akan disembunyikan atau ditampilkan -->
-  <div id="konten" style="display: none;">
-    <p>Ini adalah konten yang bisa disembunyikan atau ditampilkan.</p>
-  </div>
+    <!--=| Tombol untuk Menampilkan dan Menyembunyikan |=-->
+    <button id="tampil">Tampilkan Elemen</button>
 
-  <script src="script.js"></script>
+    <!--=| Konten yang Ingin Ditampilkan atau Disembunyikan |=-->
+    <div id="konten">
+        <p>Ini adalah konten yang bisa ditampilkan dan disembunyikan.</p>
+    </div>
+
 </body>
 </html>
-
-Kode JavaScript
 ```
-### Kode Javascript 
+### CSS
+```css
+/* Konten default disembunyikan */
+#konten{
+    display: none;
+}
+```
+### JavaScript
 ```javascript
-document.getElementById('tampilkan').addEventListener('click', function() {
-  const konten = document.getElementById('konten');
-  
-  // Cek apakah konten sedang tersembunyi
-  if (konten.style.display === 'none') {
-    konten.style.display = 'block';  // Menampilkan konten
-  } else {
-    konten.style.display = 'none';   // Menyembunyikan konten
-  }
+document.getElementById('tampil').addEventListener('click', function () {
+    const konten = document.getElementById('konten');
+
+    if (konten.style.display === 'none') {
+        konten.style.display = 'block';
+    } else {
+        konten.style.display = 'none';
+    }
 });
 ```
-Penjelasan Kode
+#### Apa Fungsi Kode Ini?
+Kode ini membuat tombol (atau elemen dengan `id="tampil"`) dapat digunakan untuk menampilkan atau menyembunyikan elemen lain (dengan `id="konten"`) melalui mekanisme *toggle*. Jadi, ketika elemen dengan `id="tampil"` diklik:
+- Jika elemen `konten` tersembunyi, maka elemen akan muncul.
+- Jika elemen `konten` terlihat, maka elemen akan disembunyikan.
 
-1. HTML: Tombol dengan id="tampilkan" digunakan untuk memicu event klik. Konten yang akan disembunyikan atau ditampilkan dibungkus dalam elemen <div> dengan id="konten" dan memiliki gaya display: none; agar tersembunyi secara default.
+#### Bagaimana Cara Kerjanya?
 
+1. Ambil Elemen Berdasarkan ID
+   ```javascript
+   document.getElementById('tampil')
+   ```
+   Baris ini mencari elemen dengan `id="tampil"` di dalam dokumen HTML. Metode `document.getElementById` mengembalikan referensi ke elemen tersebut sehingga JavaScript bisa mengendalikannya.
 
-2. JavaScript: Ketika tombol diklik, kita mendapatkan elemen dengan id="konten" dan mengecek nilai display-nya. Jika display bernilai none, maka konten akan ditampilkan dengan mengubahnya menjadi block. Sebaliknya, jika konten sudah ditampilkan, maka akan disembunyikan lagi.
+2. Tambahkan *Event Listener* 
+   ```javascript
+   .addEventListener('click', function() { ... })
+   ```
+   Bagian ini menambahkan pendengar (listener) untuk mendeteksi apakah elemen `tampil` diklik. Jika ada *event* klik (`'click'`), JavaScript akan menjalankan fungsi yang ada di dalamnya (`function(){...}`).
 
+3. Ambil Elemen `konten`
+   ```javascript
+   const konten = document.getElementById('konten');
+   ```
+   Di dalam fungsi, kita mengambil elemen lain dengan `id="konten"` agar bisa diatur properti tampilannya.
 
+4. Cek Properti `style.display`
+   ```javascript
+   if (konten.style.display === 'none') { ... }
+   ```
+   Properti `style.display` digunakan untuk mengontrol tampilan elemen di CSS:
+   - `'none'` berarti elemen tidak terlihat (disembunyikan).
+   - `'block'` berarti elemen terlihat (biasanya dalam bentuk blok).
 
-Semoga catatan ini dapat membantu Anda memahami cara menyembunyikan dan menampilkan elemen menggunakan JavaScript!
+   Di sini, kita memeriksa apakah elemen `konten` disembunyikan (`style.display === 'none'`). Jika iya, maka kita membuatnya terlihat (`konten.style.display = 'block'`).
+
+5. Ganti Status Tampil/Sembunyi
+   ```javascript
+   if (konten.style.display === 'none') {
+       konten.style.display = 'block';
+   } else {
+       konten.style.display = 'none';
+   }
+   ```
+   Jika elemen tersembunyi, tampilkan dengan `display = 'block'`. Sebaliknya, jika elemen terlihat, sembunyikan dengan `display = 'none'`.
+
+---
+
+#### Kenapa Bisa Bekerja?
+- JavaScript DOM (Document Object Model) memungkinkan kita untuk mengakses dan memanipulasi elemen HTML melalui kode.
+- Event Listener memonitor interaksi pengguna (dalam hal ini, klik), lalu mengeksekusi kode saat event terjadi.
+- CSS Property `display` menentukan apakah elemen terlihat di halaman atau tidak.
+
+---
+
+### Contoh HTML untuk Kode Ini
+```html
+<button id="tampil">Tampilkan/Sembunyikan</button>
+<div id="konten" style="display: none;">
+    Ini adalah konten yang akan ditampilkan atau disembunyikan.
+</div>
+```
+
+---
+
+### Kenapa Menarik?
+Kode ini sederhana tapi sangat berguna untuk fitur interaktif seperti:
+- Tombol "Lihat Selengkapnya".
+- Menu dropdown.
+- Menyembunyikan dan menampilkan bagian tertentu dari halaman tanpa memuat ulang.
